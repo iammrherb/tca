@@ -1,50 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAC Architecture Designer Pro</title>
     <base href="https://iammrherb.github.io/tca/">
-    <link rel="stylesheet" href="../../css/core.bundle.css">
-    <link rel="stylesheet" href="../../css/components.bundle.css">
-    <link rel="stylesheet" href="../../css/utilities/fixes.css">
-  <meta charset="UTF-8">
+    <!-- Use relative paths for all resources -->
+    <link rel="stylesheet" href="css/core.bundle.css">
+    <link rel="stylesheet" href="css/components.bundle.css">
+    <link rel="stylesheet" href="css/utilities/fixes.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .app-header {
+            background-color: #05547C;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .calculator-container {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .app-footer {
+            background-color: #f0f0f0;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #05547C;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #05547C;
+            border: 1px solid #05547C;
+        }
+    </style>
 </head>
 <body>
-  
-  <script> 
-  <script> 
-  var el = document.getElementById("countdown");
-  var isIE = navigator.appName.indexOf("Explorer") > -1;
-  var routerBase = window.routerBase || "/";
-  var isInternalDirect = true;
-  var redirectUrl = "/index.html";
-  var countdown = el 
-  ? (isIE ? el.innerText : el.textContent)
-  : 0;
-  
-  function redirect() { 
-    if (countdown <= 0) { 
-      if (isInternalDirect) {
-         redirectUrl = routerBase + redirectUrl.replace(/^\//, '')
-      }
-      location.href = redirectUrl
-
-    } else {
-      if (isIE) { 
-        el.innerText = countdown--; 
-      } else { 
-        el.textContent = countdown--; 
-      } 
-    } 
-  } 
-
-  redirect();
-  setInterval(redirect, 1000); 
-  </script>
-  </script>
-    <script src="../../js/core.bundle.js"></script>
-    <script src="../../js/core.bundle.js"></script>
-    <script src="../../js/components.bundle.js"></script>
-    <script src="../../js/components.bundle.js"></script>
-    <script src="../../js/features.bundle.js"></script>
-    <script src="../../js/features.bundle.js"></script>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>Zero Trust NAC Architecture Designer Pro</h1>
+            </div>
+            <div class="header-actions">
+                <a href="sensitivity.html" class="btn btn-outline">Sensitivity Analysis</a>
+                <button id="help-btn" class="btn btn-outline">Help</button>
+            </div>
+        </header>
+        
+        <div class="calculator-container">
+            <h2>NAC Cost Analyzer Tool</h2>
+            <p>Welcome to the NAC Architecture Designer Pro. This tool helps you analyze the Total Cost of Ownership (TCO) for different Network Access Control solutions.</p>
+            
+            <div class="button-container" style="margin-top: 30px;">
+                <a href="executive-dashboard.html" class="btn">Executive Dashboard</a>
+                <a href="sensitivity.html" class="btn">Sensitivity Analysis</a>
+                <a href="industry-compliance.html" class="btn">Industry Compliance</a>
+            </div>
+        </div>
+        
+        <footer class="app-footer">
+            <div class="copyright">
+                &copy; 2025 Portnox | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+    
+    <!-- Use relative paths for all scripts -->
+    <script src="js/core.bundle.js"></script>
+    <script src="js/components.bundle.js"></script>
+    <script src="js/features.bundle.js"></script>
 </body>
 </html>
