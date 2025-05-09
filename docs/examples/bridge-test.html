@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/core.bundle.css">
+    <link rel="stylesheet" href="css/components.bundle.css">
+    <link rel="stylesheet" href="css/utilities/fixes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAC Architecture Designer Pro - Bridge Test</title>
+    
+    <!-- Load Chart.js first -->
+    <script src="js/libraries/chart.min.js"></script>
+    
+    <!-- Load jQuery -->
+    <script src="js/libraries/jquery.min.js"></script>
+    
+    <!-- Load the bridge loader -->
+    <script src="js/bridge/bridge-loader.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .chart-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+        .chart-container {
+            flex: 1;
+            min-width: 300px;
+            margin: 10px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 4px;
+            background: #f8f8f8;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NAC Architecture Designer Pro - Bridge Test</h1>
+        
+        <div id="status">
+            <strong>Status:</strong> Testing bridge components...
+        </div>
+        
+        <button id="test-charts" class="btn">Test Charts</button>
+        <button id="test-dom-fix" class="btn">Test DOM Fix</button>
+        <button id="test-modules" class="btn">Test Modules</button>
+        
+        <div class="chart-row">
+            <div class="chart-container">
+                <h2>Test Chart 1</h2>
+                <canvas id="test-chart-1"></canvas>
+            </div>
+            <div class="chart-container">
+                <h2>Test Chart 2</h2>
+                <canvas id="test-chart-2"></canvas>
+            </div>
+        </div>
+        
+        <div id="test-results" style="margin-top: 30px;">
+            <h2>Test Results</h2>
+            <pre id="results"></pre>
+        </div>
+    </div>
+    
+    <script>
+        // Wait for bridge to initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update status
+            function updateStatus(message, success) {
+                var status = document.getElementById('status');
+                status.innerHTML = '<strong>Status:</strong> ' + message;
+                status.style.borderLeftColor = success ? '#4CAF50' : '#f44336';
+            }
+            
+            // Log to results
+            function log(message) {
+                var results = document.getElementById('results');
+                results.textContent += message + '\n';
+            }
+            
+            // Wait for bridge to be ready
+            function waitForBridge(callback) {
+                if (window.NACBridge && window.NACBridge.initialized) {
+                    callback();
+                } else {
+                    setTimeout(function() {
+                        waitForBridge(callback);
+                    }, 100);
+                }
+            }
+            
+            // Test chart initialization
+            document.getElementById('test-charts').addEventListener('click', function() {
+                waitForBridge(function() {
+                    try {
+                        log('Testing chart initialization...');
+                        
+                        // Create test chart 1
+                        var ctx1 = document.getElementById('test-chart-1').getContext('2d');
+                        var chart1 = new Chart(ctx1, {
+                            type: 'bar',
+                            data: {
+                                labels: ['A', 'B', 'C', 'D', 'E'],
+                                datasets: [{
+                                    label: 'Test Data',
+                                    data: [12, 19, 3, 5, 2],
+                                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                    borderColor: 'rgba(75, 192, 192, 1)',
+                                    borderWidth: 1
+                                }]
+                            }
+                        });
+                        
+                        // Create test chart 2
+                        var ctx2 = document.getElementById('test-chart-2').getContext('2d');
+                        var chart2 = new Chart(ctx2, {
+                            type: 'pie',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow'],
+                                datasets: [{
+                                    data: [300, 50, 100],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            }
+                        });
+                        
+                        // Test forEach on Chart.instances
+                        var chartCount = 0;
+                        Chart.instances.forEach(function() {
+                            chartCount++;
+                        });
+                        
+                        log('Successfully created and registered ' + chartCount + ' charts');
+                        log('Chart.instances.forEach is working properly');
+                        
+                        updateStatus('Chart tests passed successfully!', true);
+                    } catch (err) {
+                        log('ERROR: ' + err.message);
+                        updateStatus('Chart tests failed: ' + err.message, false);
+                    }
+                });
+            });
+            
+            // Test DOM fix
+            document.getElementById('test-dom-fix').addEventListener('click', function() {
+                waitForBridge(function() {
+                    try {
+                        log('Testing DOM circular reference fix...');
+                        
+                        // Create test elements
+                        var parent = document.createElement('div');
+                        parent.id = 'test-parent';
+                        document.body.appendChild(parent);
+                        
+                        var child = document.createElement('div');
+                        child.id = 'test-child';
+                        parent.appendChild(child);
+                        
+                        // Try to create circular reference
+                        try {
+                            child.appendChild(parent);
+                            log('WARNING: Circular reference not prevented!');
+                        } catch (err) {
+                            log('Good: Circular reference attempt was caught');
+                        }
+                        
+                        // Test duplicate ID fix
+                        var duplicate = document.createElement('div');
+                        duplicate.id = 'test-parent';
+                        document.body.appendChild(duplicate);
+                        
+                        if (duplicate.id !== 'test-parent') {
+                            log('Good: Duplicate ID was renamed to: ' + duplicate.id);
+                        } else {
+                            log('WARNING: Duplicate ID fix not working!');
+                        }
+                        
+                        updateStatus('DOM tests completed', true);
+                    } catch (err) {
+                        log('ERROR: ' + err.message);
+                        updateStatus('DOM tests failed: ' + err.message, false);
+                    }
+                });
+            });
+            
+            // Test modules
+            document.getElementById('test-modules').addEventListener('click', function() {
+                waitForBridge(function() {
+                    try {
+                        log('Testing module loading system...');
+                        
+                        // Define a test module twice
+                        window.NACBridge.loadModule('TestModule', function() {
+                            return { version: '1.0', name: 'Test Module' };
+                        });
+                        
+                        var firstInstance = window.NACBridge.modules['TestModule'];
+                        
+                        // Try to define it again
+                        window.NACBridge.loadModule('TestModule', function() {
+                            return { version: '2.0', name: 'New Test Module' };  
+                        });
+                        
+                        var secondInstance = window.NACBridge.modules['TestModule'];
+                        
+                        if (firstInstance === secondInstance) {
+                            log('Good: Module redefinition prevented, same instance returned');
+                            log('Module version: ' + firstInstance.version);
+                        } else {
+                            log('WARNING: Module redefinition not prevented!');
+                        }
+                        
+                        updateStatus('Module tests completed', true);
+                    } catch (err) {
+                        log('ERROR: ' + err.message);
+                        updateStatus('Module tests failed: ' + err.message, false);
+                    }
+                });
+            });
+            
+            // Initial check
+            setTimeout(function() {
+                if (window.NACBridge && window.NACBridge.initialized) {
+                    updateStatus('Bridge loaded and initialized successfully!', true);
+                    log('NAC Bridge version: ' + (window.NACBridge.version || 'dev'));
+                    log('Bridge initialized: ' + window.NACBridge.initialized);
+                } else {
+                    updateStatus('Bridge not initialized properly', false);
+                    log('Bridge not found or not initialized');
+                }
+            }, 1000);
+        });
+    </script>
+    <script src="js/core.bundle.js"></script>
+    <script src="js/components.bundle.js"></script>
+    <script src="js/features.bundle.js"></script>
+</body>
+</html>

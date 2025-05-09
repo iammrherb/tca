@@ -1,0 +1,111 @@
+/* Force Visibility CSS 
+   This ensures all charts and tabs are visible */
+
+/* Ensure results container is visible */
+#results-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force all tab panes to be visible */
+.tab-pane {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force charts to be visible */
+.chart-container {
+  display: block !important;
+  visibility: visible !important;
+  height: 400px !important;
+  margin-bottom: 30px !important;
+}
+
+canvas {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: 100% !important;
+}
+
+/* Ensure tables are visible */
+.table-container {
+  display: block !important;
+  visibility: visible !important;
+  margin-bottom: 30px !important;
+}
+
+/* Make the main tabs appear directly below vendor selection */
+.tabs {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+  background-color: #f8f9fa !important;
+  border-radius: 8px 8px 0 0 !important;
+  overflow-x: auto !important;
+  padding: 0 15px !important;
+}
+
+/* Style tab content */
+.tab-content {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: white !important;
+  border-radius: 0 0 8px 8px !important;
+  padding: 20px !important;
+  margin-top: 0 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+/* Force vendor details to appear */
+.vendor-selection-section {
+  margin-bottom: 20px !important;
+}
+
+.vendor-info-panel {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Add clear margin at the bottom of container */
+.calculator-container {
+  margin-bottom: 50px !important;
+}
+
+/* Tab highlight fixes */
+.tab-button.active {
+  color: #05547C !important;
+  background-color: rgba(101, 189, 68, 0.1) !important;
+  font-weight: 600 !important;
+}
+
+/* Make sure the sub-tabs are visible */
+.sub-tabs {
+  display: flex !important;
+  margin-bottom: 20px !important;
+}
+
+.sub-tab-pane {
+  display: block !important;
+}
+
+/* Fix grid layout for results */
+.results-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Hide wizard sections completely */
+.wizard-nav,
+.wizard-content,
+#wizard-error-container {
+  display: none !important;
+}

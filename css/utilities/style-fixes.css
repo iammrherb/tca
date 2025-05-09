@@ -1,0 +1,36 @@
+/* Style fixes for Total Cost Analyzer */
+
+/* Fix for logo */
+.logo img {
+  height: 40px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Fix for advanced options panel */
+#advanced-options-panel {
+  width: 100% !important;
+  display: block !important;
+}
+
+#advanced-options-panel.hidden {
+  display: none !important;
+}
+
+/* Fix for cost configuration section */
+#cost-config-section {
+  margin-top: 15px !important;
+  padding-top: 15px !important;
+  border-top: 1px solid #e0e0e0 !important;
+}
+
+#cost-config-section h5 {
+  margin-bottom: 10px !important;
+  color: #1B67B2 !important;
+}
+
+.options-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 10px !important;
+}

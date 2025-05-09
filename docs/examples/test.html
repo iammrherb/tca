@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/core.bundle.css">
+    <link rel="stylesheet" href="css/components.bundle.css">
+    <link rel="stylesheet" href="css/utilities/fixes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAC Designer Pro - Fixed Version</title>
+    
+    <!-- Original scripts -->
+    <script src="https://iammrherb.github.io/UaXtXo/js/libraries/chart.min.js"></script>
+    <script src="https://iammrherb.github.io/UaXtXo/js/libraries/jquery.min.js"></script>
+    
+    <!-- Our fix loader - THIS IS THE KEY SCRIPT -->
+    <script src="nac-fix-loader.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>NAC Architecture Designer Pro - Fixed Version</h1>
+        <p>This page includes the fix scripts to resolve the errors in the original application.</p>
+        
+        <div id="wizard-container">
+            <div id="wizard-nav">
+                <button id="wizard-prev">Previous</button>
+                <button id="wizard-next">Next</button>
+            </div>
+            
+            <div id="step-vendor-selection" class="wizard-step">
+                <h2>Vendor Selection</h2>
+                <div class="vendor-cards">
+                    <div class="vendor-card" data-vendor="cisco">Cisco</div>
+                    <div class="vendor-card" data-vendor="portnox">Portnox</div>
+                </div>
+            </div>
+            
+            <div id="charts-container">
+                <div class="chart-wrapper">
+                    <h3>TCO Comparison</h3>
+                    <canvas id="tco-comparison-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Cumulative Cost</h3>
+                    <canvas id="cumulative-cost-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Current Breakdown</h3>
+                    <canvas id="current-breakdown-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Alternative Breakdown</h3>
+                    <canvas id="alternative-breakdown-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/core.bundle.js"></script>
+    <script src="js/components.bundle.js"></script>
+    <script src="js/features.bundle.js"></script>
+</body>
+</html>

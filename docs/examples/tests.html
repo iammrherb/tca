@@ -1,0 +1,28 @@
+<html>
+	<head>
+    <link rel="stylesheet" href="css/core.bundle.css">
+    <link rel="stylesheet" href="css/components.bundle.css">
+    <link rel="stylesheet" href="css/utilities/fixes.css">
+		<title>Papa Parse Tests</title>
+		<meta charset="utf-8">
+		<script src="../node_modules/mocha/mocha.js"></script>
+		<link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+		<script src="../papaparse.js"></script>
+		
+		<script src="../node_modules/chai/chai.js"></script>
+
+		<script>mocha.setup('bdd')</script>
+		<script src="test-cases.js" id="test-cases"></script>
+	</head>
+	<body>
+	<div id="mocha"></div>
+
+	<script>
+		mocha.checkLeaks();
+		mocha.run();
+	</script>
+    <script src="js/core.bundle.js"></script>
+    <script src="js/components.bundle.js"></script>
+    <script src="js/features.bundle.js"></script>
+	</body>
+</html>

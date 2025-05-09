@@ -1,0 +1,157 @@
+/**
+ * Original Theme CSS
+ * Restores the original color scheme
+ */
+
+:root {
+  --primary-color: #05547C;
+  --primary-light: #1B8DC0;
+  --primary-dark: #033E5B;
+  --accent-color: #65BD44;
+  --accent-light: #8ED070;
+  --accent-dark: #4D9132;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Banner & Header */
+.app-header {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+  padding: 10px 20px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  box-shadow: 0 2px 10px var(--shadow-color) !important;
+}
+
+.logo {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.logo img {
+  height: 40px !important;
+  margin-right: 15px !important;
+}
+
+.logo h1 {
+  color: white !important;
+  margin: 0 !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
+.header-actions {
+  display: flex !important;
+  gap: 10px !important;
+}
+
+.header-actions .btn {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: none !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.header-actions .btn:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.header-actions .btn i {
+  font-size: 1rem !important;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-dark) !important;
+}
+
+.btn-outline {
+  background-color: white !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+}
+
+/* Cards and containers */
+.result-card {
+  background-color: var(--card-background) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px var(--shadow-color) !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.result-card h3 {
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+  color: var(--primary-color) !important;
+  font-size: 1.2rem !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px solid #f0f0f0 !important;
+  font-weight: 600 !important;
+}
+
+/* Tab styles */
+.tabs {
+  background-color: #f8f9fa !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.tab-button.active {
+  color: var(--primary-color) !important;
+}
+
+.tab-button.active::after {
+  background-color: var(--accent-color) !important;
+}
+
+.tab-content {
+  background-color: var(--card-background) !important;
+}
+
+/* Tables */
+.data-table th {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Graphs and charts */
+.chart-container {
+  background-color: var(--card-background) !important;
+  padding: 10px !important;
+  border-radius: 6px !important;
+}

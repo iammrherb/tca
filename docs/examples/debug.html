@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/core.bundle.css">
+    <link rel="stylesheet" href="css/components.bundle.css">
+    <link rel="stylesheet" href="css/utilities/fixes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAC Calculator Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .debug-section { margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; }
+        button { padding: 5px 10px; cursor: pointer; }
+        pre { background: #f5f5f5; padding: 10px; overflow: auto; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>NAC Calculator Debug</h1>
+    
+    <div class="debug-section">
+        <h2>Script Loading Check</h2>
+        <button id="check-scripts">Check Scripts</button>
+        <div id="script-results"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Vendor Data Check</h2>
+        <button id="check-vendor-data">Check Vendor Data</button>
+        <div id="vendor-data-results"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Calculator Check</h2>
+        <button id="check-calculator">Check Calculator</button>
+        <div id="calculator-results"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Chart Test</h2>
+        <canvas id="test-chart" width="400" height="200"></canvas>
+        <button id="test-chart-btn">Test Chart</button>
+        <div id="chart-results"></div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check scripts
+            document.getElementById('check-scripts').addEventListener('click', function() {
+                const results = document.getElementById('script-results');
+                results.innerHTML = '';
+                
+                const scripts = [
+                    { name: 'Chart.js', check: () => typeof Chart !== 'undefined' },
+                    { name: 'Vendor Data', check: () => typeof window.vendorData !== 'undefined' },
+                    { name: 'Enhanced Calculator', check: () => typeof window.enhancedCalculator !== 'undefined' },
+                    { name: 'UI Controller', check: () => typeof EnhancedUIController !== 'undefined' }
+                ];
+                
+                let html = '<ul>';
+                scripts.forEach(script => {
+                    try {
+                        const loaded = script.check();
+                        html += `<li class="${loaded ? 'success' : 'error'}">${script.name}: ${loaded ? 'Loaded' : 'Not Loaded'}</li>`;
+                    } catch (e) {
+                        html += `<li class="error">${script.name}: Error - ${e.message}</li>`;
+                    }
+                });
+                html += '</ul>';
+                
+                results.innerHTML = html;
+            });
+            
+            // Check vendor data
+            document.getElementById('check-vendor-data').addEventListener('click', function() {
+                const results = document.getElementById('vendor-data-results');
+                results.innerHTML = '';
+                
+                try {
+                    if (typeof window.vendorData === 'undefined') {
+                        results.innerHTML = '<p class="error">Vendor data not loaded</p>';
+                        return;
+                    }
+                    
+                    const vendors = Object.keys(window.vendorData);
+                    results.innerHTML = `<p class="success">Found ${vendors.length} vendors: ${vendors.join(', ')}</p>`;
+                    
+                    // Check first vendor for syntax issues
+                    const firstVendor = vendors[0];
+                    const vendorData = window.vendorData[firstVendor];
+                    results.innerHTML += `<pre>${JSON.stringify(vendorData, null, 2).substring(0, 500)}...</pre>`;
+                } catch (e) {
+                    results.innerHTML = `<p class="error">Error checking vendor data: ${e.message}</p>`;
+                }
+            });
+            
+            // Check calculator
+            document.getElementById('check-calculator').addEventListener('click', function() {
+                const results = document.getElementById('calculator-results');
+                results.innerHTML = '';
+                
+                try {
+                    if (typeof window.enhancedCalculator === 'undefined') {
+                        results.innerHTML = '<p class="error">Calculator not loaded</p>';
+                        return;
+                    }
+                    
+                    // Try a basic calculation
+                    const calc = window.enhancedCalculator;
+                    const testParams = {
+                        currentVendor: 'cisco',
+                        organizationSize: 'small',
+                        deviceCount: 300,
+                        yearsToProject: 1
+                    };
+                    
+                    const vendorTCO = calc.calculateVendorTCO('cisco', testParams);
+                    results.innerHTML = `<p class="success">Calculator working! Sample TCO: $${vendorTCO.totalTCO.toLocaleString()}</p>`;
+                    results.innerHTML += `<pre>${JSON.stringify(vendorTCO, null, 2).substring(0, 500)}...</pre>`;
+                } catch (e) {
+                    results.innerHTML = `<p class="error">Error using calculator: ${e.message}</p>`;
+                }
+            });
+            
+            // Test chart
+            document.getElementById('test-chart-btn').addEventListener('click', function() {
+                const results = document.getElementById('chart-results');
+                results.innerHTML = '';
+                
+                try {
+                    if (typeof Chart === 'undefined') {
+                        results.innerHTML = '<p class="error">Chart.js not loaded</p>';
+                        return;
+                    }
+                    
+                    // Create a test chart
+                    const ctx = document.getElementById('test-chart').getContext('2d');
+                    const chart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Cisco', 'Aruba', 'Portnox'],
+                            datasets: [{
+                                label: 'Test TCO',
+                                data: [150000, 120000, 50000],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(75, 192, 192, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                    
+                    results.innerHTML = '<p class="success">Chart rendering works!</p>';
+                } catch (e) {
+                    results.innerHTML = `<p class="error">Error creating chart: ${e.message}</p>`;
+                }
+            });
+        });
+    </script>
+    
+    <!-- Load key app scripts for testing -->
+    <script src="js/vendors/vendor-data.js"></script>
+    
+    
+    <script src="js/core.bundle.js"></script>
+    <script src="js/components.bundle.js"></script>
+    <script src="js/features.bundle.js"></script>
+</body>
+</html>

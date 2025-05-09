@@ -1,0 +1,460 @@
+/**
+ * Industry & Compliance Styles for NAC Architecture Designer Pro
+ * Provides modern styling for industry and compliance analysis
+ */
+
+:root {
+  --ic-primary: #2bd25b;
+  --ic-primary-dark: #1fa246;
+  --ic-primary-light: #7fe49e;
+  --ic-primary-bg: rgba(43, 210, 91, 0.1);
+  
+  --ic-secondary: #1B67B2;
+  --ic-secondary-dark: #145492;
+  --ic-secondary-light: #4a8ed0;
+  
+  --ic-neutral: #6b7280;
+  --ic-neutral-light: #f3f4f6;
+  --ic-neutral-dark: #374151;
+  
+  --ic-text: #333333;
+  --ic-text-light: #6b7280;
+  --ic-text-dark: #111827;
+  
+  --ic-border-radius-sm: 0.25rem;
+  --ic-border-radius: 0.5rem;
+  --ic-border-radius-lg: 1rem;
+  
+  --ic-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ic-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ic-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --ic-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ic-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ic-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Main container */
+.industry-compliance-container {
+  margin: 2rem 0;
+  padding: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ic-text);
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ic-neutral-light);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 0.5rem 0;
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: var(--ic-text-light);
+  margin: 0;
+}
+
+/* Controls container */
+.ic-controls-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.ic-selector-container {
+  flex: 1;
+  min-width: 250px;
+}
+
+.ic-selector-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--ic-text-dark);
+}
+
+.ic-selector {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--ic-border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ic-text);
+  background-color: white;
+  transition: border-color var(--ic-transition-fast);
+}
+
+.ic-selector:focus {
+  outline: none;
+  border-color: var(--ic-primary);
+  box-shadow: 0 0 0 3px var(--ic-primary-bg);
+}
+
+/* Content container */
+.ic-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.ic-section-header {
+  margin-bottom: 1.5rem;
+}
+
+.ic-section-header h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 0.5rem 0;
+  font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.ic-section-header p {
+  font-size: 1rem;
+  color: var(--ic-text-light);
+  margin: 0;
+}
+
+/* Industry grid */
+.ic-industry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ic-industry-card {
+  background-color: white;
+  border-radius: var(--ic-border-radius);
+  box-shadow: var(--ic-shadow);
+  padding: 1.5rem;
+  transition: all var(--ic-transition);
+}
+
+.ic-industry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ic-shadow-lg);
+}
+
+.ic-industry-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ic-industry-card-header h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0;
+}
+
+.ic-industry-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--ic-primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ic-primary);
+  font-size: 1.5rem;
+}
+
+.ic-industry-card-desc {
+  color: var(--ic-text-light);
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Industry details */
+.ic-industry-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ic-requirements-section h4,
+.ic-advantages-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 1rem 0;
+}
+
+.ic-requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.ic-requirement-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ic-neutral-light);
+  display: flex;
+  align-items: center;
+}
+
+.ic-requirement-item:last-child {
+  border-bottom: none;
+}
+
+.ic-requirement-item i {
+  color: var(--ic-primary);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.ic-frameworks-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ic-framework-badge {
+  padding: 0.5rem 1rem;
+  background-color: var(--ic-neutral-light);
+  border-radius: var(--ic-border-radius);
+  font-weight: 500;
+  color: var(--ic-text);
+  font-size: 0.9rem;
+}
+
+.ic-advantages-card {
+  background-color: var(--ic-primary-bg);
+  border-radius: var(--ic-border-radius);
+  padding: 1.5rem;
+}
+
+.ic-advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ic-advantage-item {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ic-advantage-item:last-child {
+  margin-bottom: 0;
+}
+
+.ic-advantage-item:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ic-primary);
+  font-weight: bold;
+}
+
+/* Compliance grid */
+.ic-compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ic-compliance-card {
+  background-color: white;
+  border-radius: var(--ic-border-radius);
+  box-shadow: var(--ic-shadow);
+  padding: 1.5rem;
+  transition: all var(--ic-transition);
+}
+
+.ic-compliance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--ic-shadow-lg);
+}
+
+.ic-compliance-card-header {
+  margin-bottom: 1rem;
+}
+
+.ic-compliance-card-header h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.ic-compliance-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--ic-border-radius-sm);
+  background-color: var(--ic-neutral-light);
+  color: var(--ic-text);
+  font-size: 0.8rem;
+}
+
+.ic-compliance-card-desc {
+  color: var(--ic-text-light);
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Compliance details */
+.ic-compliance-details {
+  margin-bottom: 2rem;
+}
+
+.ic-compliance-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ic-compliance-column h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 1rem 0;
+}
+
+.ic-capabilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ic-capability-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ic-neutral-light);
+  display: flex;
+  align-items: center;
+}
+
+.ic-capability-item:last-child {
+  border-bottom: none;
+}
+
+.ic-capability-item i {
+  color: var(--ic-primary);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+}
+
+.ic-portnox-advantage-card {
+  background-color: var(--ic-primary-bg);
+  border-radius: var(--ic-border-radius);
+  padding: 1.5rem;
+}
+
+.ic-portnox-advantage-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ic-primary-dark);
+  margin: 0 0 1rem 0;
+}
+
+.ic-portnox-advantage-card p {
+  margin: 0;
+  color: var(--ic-text);
+}
+
+/* Chart container */
+.ic-chart-container {
+  background-color: white;
+  border-radius: var(--ic-border-radius);
+  box-shadow: var(--ic-shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.ic-chart-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ic-text-dark);
+  margin: 0 0 1rem 0;
+}
+
+.ic-chart-wrapper {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+/* Buttons */
+.ic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: var(--ic-border-radius);
+  cursor: pointer;
+  transition: all var(--ic-transition-fast);
+  border: none;
+  font-family: inherit;
+}
+
+.ic-btn i {
+  font-size: 1.25rem;
+}
+
+.ic-btn-primary {
+  background-color: var(--ic-primary);
+  color: white;
+}
+
+.ic-btn-primary:hover {
+  background-color: var(--ic-primary-dark);
+  box-shadow: var(--ic-shadow);
+  transform: translateY(-1px);
+}
+
+.ic-btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--ic-primary);
+  color: var(--ic-primary);
+}
+
+.ic-btn-outline:hover {
+  background-color: var(--ic-primary-bg);
+  box-shadow: var(--ic-shadow-sm);
+}
+
+.ic-btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ic-industry-details {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ic-compliance-comparison {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .ic-chart-wrapper {
+    height: 300px;
+  }
+}

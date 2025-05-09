@@ -1,0 +1,199 @@
+/* Direct Layout CSS */
+
+/* Clear any existing positioning */
+.app-container {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Hide any wizard or secondary content */
+.wizard-nav,
+.wizard-content,
+#wizard-error-container {
+  display: none !important;
+}
+
+/* Make calculator container use column layout */
+.calculator-container {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px !important;
+}
+
+/* Style NAC vendor selection */
+.vendor-selection-section {
+  order: 1 !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+  background-color: white !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+/* Force results container to display */
+#results-container {
+  order: 2 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+}
+
+/* Move tabs below vendor section */
+.tabs {
+  order: 1 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #f8f9fa !important;
+  border-radius: 8px 8px 0 0 !important;
+  overflow-x: auto !important;
+  padding: 0 15px !important;
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+
+/* Style tab buttons */
+.tab-button {
+  padding: 15px 20px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+.tab-button.active {
+  color: #05547C !important;
+  border-bottom: 3px solid #65BD44 !important;
+}
+
+/* Style tab content container */
+.tab-content {
+  order: 2 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: white !important;
+  border-radius: 0 0 8px 8px !important;
+  padding: 20px !important;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+/* Style tab panes */
+.tab-pane {
+  display: none !important;
+}
+
+.tab-pane.active {
+  display: block !important;
+  animation: fadeIn 0.3s ease !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style sub-tabs */
+.sub-tabs {
+  display: flex !important;
+  margin-bottom: 20px !important;
+  border-bottom: 1px solid #eee !important;
+  overflow-x: auto !important;
+}
+
+.sub-tab-button {
+  padding: 10px 15px !important;
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  color: #666 !important;
+  white-space: nowrap !important;
+  position: relative !important;
+}
+
+.sub-tab-button.active {
+  color: #05547C !important;
+  border-bottom: 2px solid #65BD44 !important;
+}
+
+.sub-tab-pane {
+  display: none !important;
+}
+
+.sub-tab-pane.active {
+  display: block !important;
+}
+
+/* Chart containers */
+.chart-container {
+  display: block !important;
+  visibility: visible !important;
+  height: 400px !important;
+  width: 100% !important;
+  position: relative !important;
+  margin-bottom: 30px !important;
+}
+
+canvas {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Results grid */
+.results-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+  gap: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Result cards */
+.result-card {
+  background-color: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Tables */
+.data-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-bottom: 20px !important;
+}
+
+.data-table th, .data-table td {
+  padding: 12px 15px !important;
+  text-align: left !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.data-table th {
+  background-color: #05547C !important;
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+/* Export options */
+.export-options {
+  display: flex !important;
+  gap: 10px !important;
+  margin-bottom: 20px !important;
+  flex-wrap: wrap !important;
+}
+
+/* Fix spacing issues */
+.calculator-container > *:not(.vendor-selection-section):not(#results-container) {
+  display: none !important;
+}

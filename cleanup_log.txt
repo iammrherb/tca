@@ -1,0 +1,8 @@
+NAC Designer Post-Migration Cleanup Log - Fri May  9 11:28:32 AM CDT 2025
+===================================================
+[INFO] Starting post-migration cleanup process...
+[ERROR] Target directory does not exist: ./nac-designer
+[INFO] Creating symbolic link for: executive-dashboard.html
+[INFO] Creating symbolic link for: index.html
+[INFO] Creating symbolic link for: industry-compliance.html
+[INFO] Creating symbolic link for: sensitivity.html

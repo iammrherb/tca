@@ -1,0 +1,671 @@
+/* Base chart styling */
+.chart-container {
+  position: relative;
+  min-height: 300px;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.chart-container:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+.chart-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-normal);
+}
+
+/* Chart loading state */
+.chart-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color var(--transition-normal);
+}
+
+.dark-mode .chart-loading {
+  background-color: rgba(17, 24, 39, 0.9);
+}
+
+.chart-loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid rgba(59, 130, 246, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.chart-loading-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+/* Chart legend */
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal);
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.chart-legend-color {
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--radius-sm);
+  margin-right: 0.5rem;
+}
+
+.chart-legend-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+/* Tooltip styling */
+.custom-tooltip {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+}
+
+.custom-tooltip-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+.custom-tooltip-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.custom-tooltip-key {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+.custom-tooltip-value {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+/* Chart grid lines */
+.chart-grid-line {
+  stroke: var(--border-color);
+  stroke-width: 1;
+  stroke-dasharray: 3, 3;
+  transition: stroke var(--transition-normal);
+}
+
+/* Enhanced chart types */
+.chart-radar {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.chart-radar polygon {
+  stroke: var(--primary-color);
+  fill: var(--primary-light);
+  fill-opacity: 0.3;
+  transition: all var(--transition-normal);
+}
+
+.chart-radar text {
+  fill: var(--text-secondary);
+  font-size: 0.75rem;
+  transition: fill var(--transition-normal);
+}
+
+/* Risk heatmap specific styling */
+.risk-heatmap-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.risk-heatmap-cell {
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: white;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.risk-heatmap-cell:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.risk-heatmap-cell-low {
+  background-color: #10b981;
+}
+
+.risk-heatmap-cell-medium-low {
+  background-color: #6ee7b7;
+}
+
+.risk-heatmap-cell-medium {
+  background-color: #fbbf24;
+}
+
+.risk-heatmap-cell-medium-high {
+  background-color: #f59e0b;
+}
+
+.risk-heatmap-cell-high {
+  background-color: #ef4444;
+}
+
+/* Compliance matrix styling */
+.compliance-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.compliance-matrix th,
+.compliance-matrix td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal);
+}
+
+.compliance-matrix th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.compliance-matrix tr:nth-child(even) td {
+  background-color: var(--bg-secondary);
+  transition: background-color var(--transition-normal);
+}
+
+.compliance-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+}
+
+.compliance-status-full {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.compliance-status-partial {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.compliance-status-none {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Progress indicators */
+.circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.circular-progress svg {
+  width: 100%;
+  height: 100%;
+}
+
+.circular-progress circle {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset var(--transition-slow);
+}
+
+.circular-progress-bg {
+  stroke: var(--bg-tertiary);
+  transition: stroke var(--transition-normal);
+}
+
+.circular-progress-value {
+  stroke: var(--primary-color);
+}
+
+.circular-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+/* Horizontal bar comparison */
+.comparison-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comparison-bar-label {
+  width: 25%;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+.comparison-bar-track {
+  flex-grow: 1;
+  height: 1.5rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+  transition: background-color var(--transition-normal);
+}
+
+.comparison-bar-fill {
+  height: 100%;
+  background-color: var(--primary-color);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+.comparison-bar-value {
+  width: 15%;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color var(--transition-normal);
+}
+
+/* Animated counter */
+.animated-counter {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  transition: color var(--transition-normal);
+}
+
+.animated-counter.success {
+  color: var(--success-color);
+}
+
+.animated-counter.warning {
+  color: var(--warning-color);
+}
+
+.animated-counter.danger {
+  color: var(--danger-color);
+}
+
+/* Implementation timeline */
+.implementation-timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.implementation-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0.75rem;
+  width: 2px;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: background-color var(--transition-normal);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  transition: background-color var(--transition-normal);
+}
+
+.timeline-item-content {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem;
+  position: relative;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.timeline-item-content::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  left: -0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--bg-primary);
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  transform: rotate(45deg);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.timeline-item-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  transition: color var(--transition-normal);
+}
+
+.timeline-item-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+.timeline-item-days {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Feature comparison specific styling */
+.feature-comparison {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.feature-comparison th,
+.feature-comparison td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal);
+}
+
+.feature-comparison th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.feature-comparison tr:nth-child(even) td {
+  background-color: var(--bg-secondary);
+  transition: background-color var(--transition-normal);
+}
+
+.feature-rating {
+  display: flex;
+  align-items: center;
+}
+
+.feature-rating-bar {
+  width: 100px;
+  height: 0.5rem;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--radius-full);
+  margin-right: 0.5rem;
+  overflow: hidden;
+  transition: background-color var(--transition-normal);
+}
+
+.feature-rating-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+.feature-rating-fill.excellent {
+  background-color: var(--success-color);
+}
+
+.feature-rating-fill.good {
+  background-color: var(--info-color);
+}
+
+.feature-rating-fill.average {
+  background-color: var(--warning-color);
+}
+
+.feature-rating-fill.poor {
+  background-color: var(--danger-color);
+}
+
+.feature-rating-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+/* Benefits card */
+.benefit-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal), transform var(--transition-fast);
+}
+
+.benefit-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-light);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  transition: background-color var(--transition-normal);
+}
+
+.benefit-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--primary-color);
+  transition: color var(--transition-normal);
+}
+
+.benefit-content {
+  flex-grow: 1;
+}
+
+.benefit-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  transition: color var(--transition-normal);
+}
+
+.benefit-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}
+
+/* Vendor advantage card */
+.vendor-advantage-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.vendor-advantage-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.vendor-advantage-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-light);
+  transition: background-color var(--transition-normal);
+}
+
+.vendor-advantage-logo {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+
+.vendor-advantage-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.vendor-advantage-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--primary-color);
+  transition: color var(--transition-normal);
+}
+
+.vendor-advantage-content {
+  padding: 1rem;
+}
+
+.advantage-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantage-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color var(--transition-normal);
+}
+
+.advantage-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.advantage-icon {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.advantage-icon svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--success-color);
+  transition: color var(--transition-normal);
+}
+
+.advantage-text {
+  flex-grow: 1;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-normal);
+}

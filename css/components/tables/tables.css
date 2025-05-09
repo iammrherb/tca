@@ -1,0 +1,60 @@
+/**
+ * Table Styles
+ */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+}
+
+.data-table caption {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: var(--spacing-md);
+}
+
+.data-table th,
+.data-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background-color: rgba(27, 103, 178, 0.05);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(27, 103, 178, 0.02);
+}
+
+.data-table .total-row td {
+  border-top: 2px solid var(--border-color);
+  font-weight: 600;
+}
+
+.data-table .savings-row {
+  background-color: rgba(43, 210, 91, 0.05);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .data-table {
+    font-size: var(--font-size-xs);
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: var(--spacing-sm);
+  }
+}

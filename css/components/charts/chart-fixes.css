@@ -1,0 +1,53 @@
+/**
+ * Chart Display Fixes
+ */
+
+/* Force chart containers to be visible */
+.chart-container {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 300px !important;
+  min-height: 300px !important;
+  margin-bottom: 20px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+/* Force canvas elements to be visible */
+canvas {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix tab visibility */
+.tab-pane.active,
+.tab-pane.active.show {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Make results container visible */
+.results-container {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix data tables */
+.data-table {
+  width: 100% !important;
+  display: table !important;
+  visibility: visible !important;
+}
+
+/* Show calculator buttons */
+#calculate-btn {
+  display: inline-block !important;
+}
