@@ -1,0 +1,67 @@
+/* Logo and branding enhancements */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  max-height: 36px;
+  transition: all 0.3s ease;
+}
+
+.logo h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .logo h1 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Tooltip for Total Cost Analyzer */
+.tca-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tca-tooltip:hover:after {
+  content: "Formerly TCO Calculator";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 100;
+  margin-top: 5px;
+}
+
+.tca-tooltip:hover:before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+  z-index: 100;
+}

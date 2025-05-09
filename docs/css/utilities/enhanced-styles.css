@@ -1,0 +1,198 @@
+/* Enhanced styles for TCO Analyzer */
+
+/* Fix chart visibility issues */
+.chart-container {
+  display: block !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 300px !important;
+  margin-bottom: 20px !important;
+}
+
+/* Force chart canvas to be visible */
+canvas {
+  display: block !important;
+}
+
+/* Enhanced comparison cards */
+.comparison-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .comparison-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.comparison-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comparison-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.comparison-card .card-header {
+  padding: 15px 20px;
+  background: #1B67B2;
+  color: white;
+}
+
+.portnox-card .card-header {
+  background: #65BD44;
+}
+
+.card-header h3 {
+  margin: 0 0 5px 0;
+  color: white;
+}
+
+.card-tag {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.advantage-list, .challenge-list {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+}
+
+.advantage-list li, .challenge-list li {
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.advantage-list li i, .challenge-list li i {
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.advantage-list li i {
+  color: #65BD44;
+}
+
+.challenge-list li i {
+  color: #1B67B2;
+}
+
+/* Enhanced comparison table */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.comparison-table th, 
+.comparison-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.comparison-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:hover {
+  background-color: rgba(101, 189, 68, 0.05);
+}
+
+.portnox-advantage {
+  color: #65BD44;
+  font-weight: 600;
+}
+
+/* Remove unnecessary sidebar elements */
+.industry-templates-card,
+.compliance-info-container,
+#industry-benchmarks-container {
+  display: none !important;
+}
+
+/* Fix logo sizing */
+.logo img {
+  height: 40px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Improved tab styling */
+.tab-button {
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: #505050;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-button:hover {
+  color: #1B67B2;
+}
+
+.tab-button.active {
+  color: #1B67B2;
+  border-bottom-color: #1B67B2;
+}
+
+/* Tab content transitions */
+.tab-pane {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tab-pane.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced card styling */
+.result-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.result-card h3 {
+  color: #1B67B2;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}

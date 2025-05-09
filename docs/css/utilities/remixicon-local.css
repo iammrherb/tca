@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'remixicon';
+  src: url('../fonts/remixicon/remixicon.woff2') format('woff2'),
+       url('../fonts/remixicon/remixicon.woff') format('woff'),
+       url('../fonts/remixicon/remixicon.ttf') format('truetype');
+  font-display: swap;
+}
+
+[class^="ri-"], [class*=" ri-"] {
+  font-family: 'remixicon' !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Include basic icon styles */
+.ri-calculator-line:before { content: "\eb85"; }
+.ri-building-2-line:before { content: "\eb10"; }
+.ri-magic-line:before { content: "\ef58"; }
+.ri-line-chart-line:before { content: "\ef15"; }
+.ri-check-line:before { content: "\ebd6"; }
+.ri-arrow-left-line:before { content: "\ea64"; }
+.ri-arrow-right-line:before { content: "\ea6e"; }
+.ri-file-chart-line:before { content: "\ecb4"; }
+.ri-lightbulb-line:before { content: "\ef0f"; }
+.ri-checkbox-circle-line:before { content: "\ebd8"; }
+.ri-file-list-2-line:before { content: "\ecc3"; }
+.ri-check-double-line:before { content: "\ebd5"; }
+.ri-shield-check-line:before { content: "\f139"; }
+.ri-information-line:before { content: "\eec4"; }
+.ri-alert-line:before { content: "\ea27"; }
+.ri-error-warning-line:before { content: "\ec45"; }
+.ri-close-line:before { content: "\eb99"; }
+.ri-play-line:before { content: "\efaf"; }
+.ri-team-line:before { content: "\f1b5"; }
+.ri-exchange-line:before { content: "\ec5a"; }
+.ri-movie-line:before { content: "\ef7b"; }

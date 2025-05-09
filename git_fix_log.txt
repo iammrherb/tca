@@ -1,0 +1,2 @@
+[INFO] Added all files to staging (with updated .gitignore)
+[SUCCESS] Created initial commit
