@@ -1,44 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="../../css/core.bundle.css">
-    <link rel="stylesheet" href="../../css/components.bundle.css">
-    <link rel="stylesheet" href="../../css/utilities/fixes.css">
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=../index.html">
+    <title>Redirecting...</title>
+    <script>
+        window.location.href = "../index.html";
+    </script>
 </head>
 <body>
-  
-  <script> 
-  var el = document.getElementById("countdown");
-  var isIE = navigator.appName.indexOf("Explorer") > -1;
-  var routerBase = window.routerBase || "/docs/3.9.1/";
-  var isInternalDirect = true;
-  var redirectUrl = "/samples/information.html";
-  var countdown = el 
-  ? (isIE ? el.innerText : el.textContent)
-  : 0;
-  
-  function redirect() { 
-    if (countdown <= 0) { 
-      if (isInternalDirect) {
-         redirectUrl = routerBase + redirectUrl.replace(/^\//, '')
-      }
-      location.href = redirectUrl
-
-    } else {
-      if (isIE) { 
-        el.innerText = countdown--; 
-      } else { 
-        el.textContent = countdown--; 
-      } 
-    } 
-  } 
-
-  redirect();
-  setInterval(redirect, 1000); 
-  </script>
-    <script src="../../js/core.bundle.js"></script>
-    <script src="../../js/components.bundle.js"></script>
-    <script src="../../js/features.bundle.js"></script>
+    <p>Redirecting to the main page... <a href="../index.html">Click here if you are not redirected automatically</a></p>
 </body>
 </html>
