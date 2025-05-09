@@ -1,1 +1,79 @@
-/* Component styling for NAC Designer */
+/* Components Bundle CSS - Updated */
+.vendor-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.vendor-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.vendor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.vendor-card.active {
+  border-color: #05547C;
+  background-color: rgba(5, 84, 124, 0.05);
+}
+
+.vendor-card img {
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Form elements */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.wizard-content {
+  margin-top: 20px;
+}
+
+.wizard-step-content {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Dark mode styles */
+.dark-mode .vendor-card {
+  background-color: #222;
+  border-color: #444;
+  color: #f0f0f0;
+}
+
+.dark-mode .vendor-card.active {
+  border-color: #65abd4;
+  background-color: rgba(101, 171, 212, 0.1);
+}
+
+.dark-mode .wizard-step-content {
+  background-color: #222;
+  color: #f0f0f0;
+}
