@@ -1,1 +1,257 @@
-app/views/executive-dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://iammrherb.github.io/tca/">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/components.bundle.css">
+    <link rel="stylesheet" href="../../css/utilities/fixes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zero Trust NAC Architecture Designer Pro - Executive Dashboard">
+    <title>Executive Dashboard - Zero Trust NAC Architecture Designer Pro</title>
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    <link rel="stylesheet" href="../../css/core.bundle.css">
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <img src="../../img/vendors/portnox-logo.png" alt="Portnox Logo">
+                <h1>Zero Trust NAC Architecture Designer Pro</h1>
+            </div>
+            <div class="header-actions">
+                <button id="dashboard-help-btn" class="btn btn-outline btn-sm">
+                    <i class="fas fa-question-circle"></i> Help
+                </button>
+                <button id="return-to-calculator" class="btn btn-outline btn-sm">
+                    <i class="fas fa-arrow-left"></i> Return to Calculator
+                </button>
+                <button id="exec-print-btn" class="btn btn-primary btn-sm">
+                    <i class="fas fa-print"></i> Print Report
+                </button>
+            </div>
+        </header>
+
+        <div class="calculator-container">
+            <div id="message-container"></div>
+            
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h2>Executive Dashboard</h2>
+                    <p class="subtitle">Strategic NAC Investment Analysis</p>
+                </div>
+                
+                <!-- Executive KPIs -->
+                <div class="exec-dashboard">
+                    <div class="metric-card">
+                        <div class="metric-title">Projected 5-Year TCO Savings</div>
+                        <div id="tco-savings" class="metric-value">,245,000</div>
+                        <div class="metric-change positive">48% lower than current solution</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-title">Implementation Time</div>
+                        <div id="implementation-time" class="metric-value">15 days</div>
+                        <div class="metric-change positive">75% faster than industry average</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-title">Annual Personnel Cost Savings</div>
+                        <div id="fte-savings" class="metric-value">85,000</div>
+                        <div class="metric-change positive">3.2 FTEs redeployed to strategic initiatives</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-title">Security Posture Improvement</div>
+                        <div id="security-improvement" class="metric-value">37%</div>
+                        <div class="metric-change positive">Significant compliance & security enhancement</div>
+                    </div>
+                </div>
+                
+                <!-- Primary charts -->
+                <div class="charts-container">
+                    <div class="chart-row">
+                        <div class="chart-container">
+                            <h3>TCO & ROI Analysis</h3>
+                            <canvas id="roi-chart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>Security & Compliance Posture</h3>
+                            <canvas id="compliance-radar"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-row">
+                        <div class="chart-container">
+                            <h3>IT Staff Time Requirements (Monthly)</h3>
+                            <canvas id="fte-savings-chart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container">
+                            <h3>TCO Projection & Cumulative Savings</h3>
+                            <canvas id="cost-projection-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-row">
+                        <div class="chart-container full-width">
+                            <h3>Feature Comparison & Competitive Analysis</h3>
+                            <canvas id="feature-comparison-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business impact analysis -->
+                <div class="business-impact">
+                    <h3>Business Impact Analysis</h3>
+                    
+                    <div class="impact-grid">
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Risk Reduction</h4>
+                            <p class="impact-value">83%</p>
+                            <p>Reduction in unauthorized access incidents</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>Operational Efficiency</h4>
+                            <p class="impact-value">68%</p>
+                            <p>Faster onboarding & device provisioning</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-file-contract"></i></div>
+                            <h4>Compliance Improvement</h4>
+                            <p class="impact-value">95%</p>
+                            <p>Automated compliance reporting coverage</p>
+                        </div>
+                        
+                        <div class="impact-card">
+                            <div class="impact-icon"><i class="fas fa-cogs"></i></div>
+                            <h4>IT Productivity</h4>
+                            <p class="impact-value">42%</p>
+                            <p>Reclaimed IT staff time for strategic initiatives</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recommendations section -->
+                <div class="recommendations-section">
+                    <h3>Strategic Recommendations</h3>
+                    
+                    <div class="recommendation-container">
+                        <div class="recommendation">
+                            <div class="recommendation-header">
+                                <div class="recommendation-icon"><i class="fas fa-lightbulb"></i></div>
+                                <h4>Transition to Cloud-Native NAC</h4>
+                            </div>
+                            <p>Migrating from on-premise NAC infrastructure to Portnox's cloud-native solution eliminates hardware costs and reduces ongoing maintenance by an estimated 72%, while improving security posture by 37%.</p>
+                        </div>
+                        
+                        <div class="recommendation">
+                            <div class="recommendation-header">
+                                <div class="recommendation-icon"><i class="fas fa-tasks"></i></div>
+                                <h4>Phased Implementation Approach</h4>
+                            </div>
+                            <p>A 3-phase implementation approach enables rapid security improvement with minimal disruption. Critical infrastructure secured in phase 1 (5 days), endpoints in phase 2 (7 days), and advanced controls in phase 3 (3 days).</p>
+                        </div>
+                        
+                        <div class="recommendation">
+                            <div class="recommendation-header">
+                                <div class="recommendation-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                                <h4>TCO Optimization Strategy</h4>
+                            </div>
+                            <p>Reallocate 60% of current NAC budget to strategic security initiatives by leveraging Portnox's subscription model, which provides predictable costs and eliminates CapEx while ensuring continuous security updates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <div class="copyright">
+                &copy; 2025 Portnox | All Rights Reserved
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </footer>
+        
+        <!-- Help Modal -->
+        <div id="dashboard-help-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Executive Dashboard - Help</h2>
+                <span class="close-button" id="dashboard-help-modal-close">&times;</span>
+                <div class="modal-body">
+                    <h3>About the Executive Dashboard</h3>
+                    <p>This dashboard provides a strategic overview of your NAC investment analysis with a focus on business outcomes, ROI, and competitive advantages of Portnox Cloud.</p>
+                    
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Executive KPIs</strong> - Quick view of critical metrics that matter to decision makers</li>
+                        <li><strong>TCO & ROI Analysis</strong> - Detailed cost projection and return on investment visualization</li>
+                        <li><strong>Security & Compliance Comparison</strong> - How different NAC solutions support your regulatory requirements</li>
+                        <li><strong>IT Staff Impact</strong> - Personnel time savings and productivity improvements</li>
+                        <li><strong>Business Impact Analysis</strong> - Quantified operational and security benefits</li>
+                    </ul>
+                    
+                    <h3>Using This Dashboard</h3>
+                    <p>This dashboard is designed for executive stakeholders and decision makers to quickly understand the business case for Portnox Cloud. You can:</p>
+                    <ul>
+                        <li>Print the entire dashboard as a report using the Print button</li>
+                        <li>Hover over charts for detailed information</li>
+                        <li>Return to the calculator to adjust inputs and see how they affect the business case</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button id="dashboard-help-modal-close-btn" class="btn btn-primary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2"></script>
+    
+    <!-- Core JavaScript -->
+    
+    
+    <!-- Managers -->
+    
+    
+    <!-- Charts -->
+    <script src="../../js/charts/chart-init-safe.js"></script>
+    <script src="../../js/components/chart-builder.js"></script>
+    <script src="../../js/components/enhanced-chart-builder.js"></script>
+    
+    <!-- Features -->
+    <script src="../../js/utils/fte-analysis.js"></script>
+    
+    <!-- Main Dashboard Script -->
+    <script src="../../js/utils/executive-dashboard.js"></script>
+    <script src="../../js/core.bundle.js"></script>
+    <script src="../../js/components.bundle.js"></script>
+    <script src="../../js/features.bundle.js"></script>
+</body>
+</html>
